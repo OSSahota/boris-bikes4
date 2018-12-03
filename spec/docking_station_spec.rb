@@ -2,8 +2,6 @@ require 'docking_station'
 
 describe DockingStation do
 
-  DEFAULT_CAPACITY = 20
-
   # docking station releases a bike
    it { is_expected.to respond_to :release_bike }
 # working function returns true, so this should pass
@@ -32,10 +30,10 @@ describe DockingStation do
    end
 
    describe '#dock' do
-    it 'raises an error when full' do
-      # DEFAULT_CAPACITY.times { subject.dock Bike.new }
+     it 'raises an error when full' do
       DockingStation::DEFAULT_CAPACITY.times { subject.dock Bike.new }
       expect { subject.dock Bike.new }.to raise_error 'Station Full'
-    end
-  end
+      end
+   end
+
 end
